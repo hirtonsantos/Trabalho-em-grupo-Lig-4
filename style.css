@@ -9,14 +9,21 @@ ul{
 
 }
 li{
-    text-decoration: none;
+    /* text-decoration: none; */
     list-style: none;
-    border: solid 3px #000000;
+    /* border: solid 3px #000000; */
+
 }
 
-.column{
+/* .column{
     text-decoration: none;
     list-style: none;
     border: solid 3px #000000;
 
+} */
+
+.tupla{
+    text-decoration: none;
+    list-style: none;
+    border: solid 1px #000000;
 }

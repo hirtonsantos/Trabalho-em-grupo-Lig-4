@@ -14,13 +14,12 @@ function initial_table(){
         
         for(let a = 0; a < row; a++){
             const linha = document.createElement("div")
-            // linha.classList.add("coluna"+i,"linha"+a)
+            linha.classList.add("tupla","tupla"+a)
 
 
-            let tupla = document.createElement('div')
-            tupla.classList.add("tupla"+a)
-            tupla.innerHTML = "teste"
-            linha.appendChild(tupla)
+ 
+            linha.innerHTML = "teste"
+
             coluna.appendChild(linha)
         }
 
