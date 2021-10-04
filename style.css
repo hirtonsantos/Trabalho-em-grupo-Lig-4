@@ -1,0 +1,22 @@
+body{
+    display: flex;
+    justify-content: center;
+    margin-top: 0 auto;
+}
+ul{
+    display: flex;
+    justify-content: center;
+
+}
+li{
+    text-decoration: none;
+    list-style: none;
+    border: solid 3px #000000;
+}
+
+.column{
+    text-decoration: none;
+    list-style: none;
+    border: solid 3px #000000;
+
+}
