@@ -5,7 +5,12 @@ function initial_table(){
     let row = 6;
 
     const table = document.createElement("ul")
-    document.body.appendChild(table)
+    const secao = document.createElement("section")
+    document.body.appendChild(secao)
+
+
+    secao.appendChild(table)
+    
     
      
     for(let i = 0; i < column; i++ ){
