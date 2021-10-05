@@ -1,3 +1,6 @@
+
+
+
 const body = document.getElementsByTagName('body')[0]
 const section = document.createElement('section')
 body.appendChild(section)
