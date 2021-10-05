@@ -1,10 +1,10 @@
-let tab01 = []
-let tab02 = []
-let tab03 = []
-let tab04 = []
-let tab05 = []
-let tab06 = []
-let tab07 = []
+let tab01 = ''
+let tab02 = ''
+let tab03 = ''
+let tab04 = ''
+let tab05 = ''
+let tab06 = ''
+let tab07 = ''
 
 const body = document.getElementsByTagName('body')[0]
 const section = document.createElement('section')
@@ -57,7 +57,25 @@ sec.addEventListener("click", (evt)=>{
             coluna.appendChild(bola01)
             player = "p2"
             if(coluna.id === "coluna01") {
-                tab01 += 'PLAYER1'
+                tab01 += '1'
+            }
+            if(coluna.id === "coluna02") {
+                tab02 += '1'
+            }
+            if(coluna.id === "coluna03") {
+                tab03 += '1'
+            }
+            if(coluna.id === "coluna04") {
+                tab04 += '1'
+            }
+            if(coluna.id === "coluna05") {
+                tab05 += '1'
+            }
+            if(coluna.id === "coluna06") {
+                tab06 += '1'
+            }
+            if(coluna.id === "coluna07") {
+                tab07 += '1'
             }
 
         }
@@ -65,7 +83,34 @@ sec.addEventListener("click", (evt)=>{
         else if(player === "p2"){
             coluna.appendChild(bola02)
             player = "p1"
+            if(coluna.id === "coluna01") {
+                tab01 += '2'
+            }
+            if(coluna.id === "coluna02") {
+                tab02 += '2'
+            }
+            if(coluna.id === "coluna03") {
+                tab03 += '2'
+            }
+            if(coluna.id === "coluna04") {
+                tab04 += '2'
+            }
+            if(coluna.id === "coluna05") {
+                tab05 += '2'
+            }
+            if(coluna.id === "coluna06") {
+                tab06 += '2'
+            }
+            if(coluna.id === "coluna07") {
+                tab07 += '2'
+            }
         }
     }
     console.log(tab01)
+    console.log(tab02)
+    console.log(tab03)
+    console.log(tab04)
+    console.log(tab05)
+    console.log(tab06)
+    console.log(tab07)
 })
