@@ -1,5 +1,10 @@
-
-
+let tab01 = []
+let tab02 = []
+let tab03 = []
+let tab04 = []
+let tab05 = []
+let tab06 = []
+let tab07 = []
 
 const body = document.getElementsByTagName('body')[0]
 const section = document.createElement('section')
@@ -43,11 +48,17 @@ sec.addEventListener("click", (evt)=>{
     bola02.classList.add("player02")
     
     let coluna = evt.target;
+    // console.log()    
 
     if(coluna.classList[0] === "coluna"){
+        // const teste = coluna.classList[1]
+        // console.log(teste)
         if(player === "p1"){
             coluna.appendChild(bola01)
             player = "p2"
+            if(coluna.id === "coluna01") {
+                tab01 += 'PLAYER1'
+            }
 
         }
 
@@ -55,6 +66,6 @@ sec.addEventListener("click", (evt)=>{
             coluna.appendChild(bola02)
             player = "p1"
         }
-     }
-
+    }
+    console.log(tab01)
 })
