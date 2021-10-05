@@ -1,12 +1,24 @@
+const body = document.getElementsByTagName('body')[0]
+const section = document.createElement('section')
+body.appendChild(section)
+section.classList.add('sec')
+section.setAttribute('id', 'sec')
 
-    const body = document.getElementsByTagName('body')[0]
-    const section = document.createElement('section')
-    body.appendChild(section)
-    section.classList.add('sec')
-    section.setAttribute('id', 'sec')
 
 
-    
+function initial_table(){
+
+    let coluna = 7;
+
+    for (let i = 0; i < coluna; i++) {
+        const colunas = document.createElement('div')
+        section.appendChild(colunas)
+        colunas.setAttribute('class','coluna')
+        colunas.setAttribute('id',`coluna0${i+1}`)
+    }
+}
+initial_table()
+
 
 
 const sec = document.getElementById("sec")
@@ -30,20 +42,16 @@ sec.addEventListener("click", (evt)=>{
     let coluna = evt.target;
 
     if(coluna.classList[0] === "coluna"){
-    if(player === "p1"){
-    coluna.appendChild(bola01)
-    player = "p2"
+        if(player === "p1"){
+            coluna.appendChild(bola01)
+            player = "p2"
 
-    }
+        }
 
-    else if(player === "p2"){
-        coluna.appendChild(bola02)
-        player = "p1"
-    }
-
-
+        else if(player === "p2"){
+            coluna.appendChild(bola02)
+            player = "p1"
+        }
      }
-
-
 
 })

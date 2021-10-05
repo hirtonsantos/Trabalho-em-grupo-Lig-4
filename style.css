@@ -1,0 +1,34 @@
+body{
+    display: flex;
+    justify-content: center;
+    margin-top: 0 auto;
+}
+
+.sec {
+    display: flex;
+    flex-direction: row;
+    
+    background-color: burlywood;
+}
+
+.coluna {
+    display: flex;
+    flex-direction: column-reverse;
+    height: 200px;
+    width: 50px;
+    background-color: blueviolet;
+    border: 1px solid black;
+}
+
+.player01 {
+    height: 50px;
+    width: 50px;
+    background-color: crimson;
+}
+
+
+.player02 {
+    height: 50px;
+    width: 50px;
+    background-color: rgb(4, 0, 255);
+}
