@@ -2,13 +2,31 @@ body{
     display: flex;
     justify-content: center;
     margin-top: 0 auto;
+    flex-direction: column;
+    height: 100%;
 }
+
+h1{
+    display: flex;
+    margin: 0 auto;
+    font-family: 'Permanent Marker', cursive;
+    margin-bottom: 60px;
+    color: rgba(255, 0, 0);
+}
+
+
 
 .sec {
     display: flex;
     flex-direction: row;
     
-    background-color: burlywood;
+    /* background-color: burlywood; */
+    background:url('./image/jigsaw.jpg') no-repeat center;
+    background-size: cover;
+    box-shadow: 6px 8px 10px 10px #c00;
+    max-width: 500px;
+    margin: 0 auto;
+
 }
 
 .coluna {
@@ -16,19 +34,76 @@ body{
     flex-direction: column-reverse;
     height: 350px;
     width: 50px;
-    background-color: blueviolet;
-    border: 1px solid black;
+    /* background-color: blueviolet; */
+    /* border: 1px solid black; */
+    border: 1px solid rgba(255, 0, 0, 0.1);
+
 }
+
+.coluna:hover {
+  
+    background-image: url('./image/Sangue.jpg');
+    opacity: 0.5;
+
+}
+
+
 
 .player01 {
     height: 50px;
     width: 50px;
-    background-color: crimson;
+    background: url('./image/Sangue.jpg');
+    background-size: cover;
+    z-index: 1;
+    
+    border-radius: 50%;
 }
 
 
 .player02 {
     height: 50px;
     width: 50px;
-    background-color: rgb(4, 0, 255);
+    background: url('./image/facada.jpg') center;
+    background-size: cover;
+
+    border-radius: 50%;
+    z-index: 1;
 }
+
+
+.placar{
+    display: flex;
+    margin: 20px;
+    padding: 20px;
+    justify-content: center;
+}
+.slide-in-top {
+	-webkit-animation: slide-in-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	        animation: slide-in-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+@-webkit-keyframes slide-in-top {
+    0% {
+      -webkit-transform: translateY(-1000px);
+              transform: translateY(-1000px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: translateY(0);
+              transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  @keyframes slide-in-top {
+    0% {
+      -webkit-transform: translateY(-1000px);
+              transform: translateY(-1000px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: translateY(0);
+              transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  

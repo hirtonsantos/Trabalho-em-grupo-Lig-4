@@ -6,6 +6,12 @@ let tab05 = ''
 let tab06 = ''
 let tab07 = ''
 
+let title = document.createElement("h1")
+title.innerHTML = "Lig-4"
+title.classList.add("title")
+
+document.body.appendChild(title)
+
 const body = document.getElementsByTagName('body')[0]
 const section = document.createElement('section')
 body.appendChild(section)
@@ -14,9 +20,13 @@ section.setAttribute('id', 'sec')
 
 
 
+
+
 function initial_table(){
 
     let coluna = 7;
+
+    
 
     for (let i = 0; i < coluna; i++) {
         const colunas = document.createElement('div')
@@ -24,6 +34,8 @@ function initial_table(){
         colunas.setAttribute('class','coluna')
         colunas.setAttribute('id',`coluna0${i+1}`)
     }
+
+ 
 }
 initial_table()
 
@@ -44,8 +56,8 @@ sec.addEventListener("click", (evt)=>{
     const bola01 = document.createElement("div")
     const bola02 = document.createElement("div")
     
-    bola01.classList.add("player01")
-    bola02.classList.add("player02")
+    bola01.classList.add("player01","slide-in-top")
+    bola02.classList.add("player02","slide-in-top")
     
     let coluna = evt.target;
     // console.log()    
@@ -114,3 +126,7 @@ sec.addEventListener("click", (evt)=>{
     console.log(tab06)
     console.log(tab07)
 })
+
+function placar(){
+    
+}
