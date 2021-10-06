@@ -63,58 +63,110 @@ sec.addEventListener("click", (evt)=>{
     // console.log()    
 
     if(coluna.classList[0] === "coluna"){
-        // const teste = coluna.classList[1]
-        // console.log(teste)
         if(player === "p1"){
-            coluna.appendChild(bola01)
-            player = "p2"
             if(coluna.id === "coluna01") {
-                tab01 += '1'
+                if (tab01.length < 7) {
+                    coluna.appendChild(bola01)
+                    tab01 += '1'
+                    player = "p2"
+                }
             }
             if(coluna.id === "coluna02") {
-                tab02 += '1'
+                if (tab02.length < 7) {
+                    coluna.appendChild(bola01)
+                    tab02 += '1'
+                    player = "p2"
+                }
             }
             if(coluna.id === "coluna03") {
-                tab03 += '1'
+                if (tab03.length < 7) {
+                    coluna.appendChild(bola01)
+                    tab03 += '1'
+                    player = "p2"
+                }
             }
             if(coluna.id === "coluna04") {
-                tab04 += '1'
+                if (tab04.length < 7) {
+                    coluna.appendChild(bola01)
+                    tab04 += '1'
+                    player = "p2"
+                }
             }
             if(coluna.id === "coluna05") {
-                tab05 += '1'
+                if (tab05.length < 7) {
+                    coluna.appendChild(bola01)
+                    tab05 += '1'
+                    player = "p2"
+                }
+
             }
             if(coluna.id === "coluna06") {
-                tab06 += '1'
+                if (tab06.length < 7) {
+                    coluna.appendChild(bola01)
+                    tab06 += '1'
+                    player = "p2"
+                }
             }
             if(coluna.id === "coluna07") {
-                tab07 += '1'
+                if (tab07.length < 7) {
+                    coluna.appendChild(bola01)
+                    tab07 += '1'
+                    player = "p2"
+                }
             }
-
         }
 
         else if(player === "p2"){
-            coluna.appendChild(bola02)
-            player = "p1"
             if(coluna.id === "coluna01") {
-                tab01 += '2'
+                if (tab01.length < 7) {
+                    coluna.appendChild(bola02)
+                    player = "p1"
+                    tab01 += '2'
+                }
             }
             if(coluna.id === "coluna02") {
-                tab02 += '2'
+                if (tab02.length < 7) {
+                    coluna.appendChild(bola02)
+                    player = "p1"
+                    tab02 += '2'
+                    
+                    console.log('Largura: ' + tab01.length)
+                }
             }
             if(coluna.id === "coluna03") {
-                tab03 += '2'
+                if (tab03.length < 7) {
+                    coluna.appendChild(bola02)
+                    player = "p1"
+                    tab03 += '2'
+                }
             }
             if(coluna.id === "coluna04") {
-                tab04 += '2'
+                if (tab04.length < 7) {
+                    coluna.appendChild(bola02)
+                    player = "p1"
+                    tab04 += '2'
+                }
             }
             if(coluna.id === "coluna05") {
-                tab05 += '2'
+                if (tab05.length < 7) {
+                    coluna.appendChild(bola02)
+                    player = "p1"
+                    tab05 += '2'
+                }
             }
             if(coluna.id === "coluna06") {
-                tab06 += '2'
+                if (tab06.length < 7) {
+                    coluna.appendChild(bola02)
+                    player = "p1"
+                    tab06 += '2'
+                }
             }
             if(coluna.id === "coluna07") {
-                tab07 += '2'
+                if (tab07.length < 7) {
+                    coluna.appendChild(bola02)
+                    player = "p1"
+                    tab07 += '2'
+                }
             }
         }
     }
