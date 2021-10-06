@@ -18,10 +18,6 @@ body.appendChild(section)
 section.classList.add('sec')
 section.setAttribute('id', 'sec')
 
-
-
-
-
 function initial_table(){
 
     let coluna = 7;
@@ -69,6 +65,7 @@ sec.addEventListener("click", (evt)=>{
                     coluna.appendChild(bola01)
                     tab01 += '1'
                     player = "p2"
+                    conditional(coluna, "p1")
                 }
             }
             if(coluna.id === "coluna02") {
@@ -76,6 +73,8 @@ sec.addEventListener("click", (evt)=>{
                     coluna.appendChild(bola01)
                     tab02 += '1'
                     player = "p2"
+                    conditional(coluna, "p1")
+                    
                 }
             }
             if(coluna.id === "coluna03") {
@@ -83,6 +82,7 @@ sec.addEventListener("click", (evt)=>{
                     coluna.appendChild(bola01)
                     tab03 += '1'
                     player = "p2"
+                    conditional(coluna, "p1")
                 }
             }
             if(coluna.id === "coluna04") {
@@ -90,6 +90,7 @@ sec.addEventListener("click", (evt)=>{
                     coluna.appendChild(bola01)
                     tab04 += '1'
                     player = "p2"
+                    conditional(coluna, "p1")
                 }
             }
             if(coluna.id === "coluna05") {
@@ -97,6 +98,7 @@ sec.addEventListener("click", (evt)=>{
                     coluna.appendChild(bola01)
                     tab05 += '1'
                     player = "p2"
+                    conditional(coluna, "p1")
                 }
 
             }
@@ -105,6 +107,7 @@ sec.addEventListener("click", (evt)=>{
                     coluna.appendChild(bola01)
                     tab06 += '1'
                     player = "p2"
+                    conditional(coluna, "p1")
                 }
             }
             if(coluna.id === "coluna07") {
@@ -112,6 +115,7 @@ sec.addEventListener("click", (evt)=>{
                     coluna.appendChild(bola01)
                     tab07 += '1'
                     player = "p2"
+                    conditional(coluna, "p1")
                 }
             }
         }
@@ -122,6 +126,7 @@ sec.addEventListener("click", (evt)=>{
                     coluna.appendChild(bola02)
                     player = "p1"
                     tab01 += '2'
+                    conditional(coluna, "p2")
                 }
             }
             if(coluna.id === "coluna02") {
@@ -129,8 +134,7 @@ sec.addEventListener("click", (evt)=>{
                     coluna.appendChild(bola02)
                     player = "p1"
                     tab02 += '2'
-                    
-                    console.log('Largura: ' + tab01.length)
+                    conditional(coluna, "p2")
                 }
             }
             if(coluna.id === "coluna03") {
@@ -138,6 +142,7 @@ sec.addEventListener("click", (evt)=>{
                     coluna.appendChild(bola02)
                     player = "p1"
                     tab03 += '2'
+                    conditional(coluna, "p2")
                 }
             }
             if(coluna.id === "coluna04") {
@@ -145,6 +150,7 @@ sec.addEventListener("click", (evt)=>{
                     coluna.appendChild(bola02)
                     player = "p1"
                     tab04 += '2'
+                    conditional(coluna, "p2")
                 }
             }
             if(coluna.id === "coluna05") {
@@ -152,6 +158,7 @@ sec.addEventListener("click", (evt)=>{
                     coluna.appendChild(bola02)
                     player = "p1"
                     tab05 += '2'
+                    conditional(coluna, "p2")
                 }
             }
             if(coluna.id === "coluna06") {
@@ -159,6 +166,7 @@ sec.addEventListener("click", (evt)=>{
                     coluna.appendChild(bola02)
                     player = "p1"
                     tab06 += '2'
+                    conditional(coluna, "p2")
                 }
             }
             if(coluna.id === "coluna07") {
@@ -166,22 +174,26 @@ sec.addEventListener("click", (evt)=>{
                     coluna.appendChild(bola02)
                     player = "p1"
                     tab07 += '2'
+                    conditional(coluna, "p2")
                 }
             }
         }
     }
-    console.log(tab01)
-    console.log(tab02)
-    console.log(tab03)
-    console.log(tab04)
-    console.log(tab05)
-    console.log(tab06)
-    console.log(tab07)
+    
+    let posicaoY = parseInt(coluna.id[coluna.id.length-1])
+    let posicaoX = coluna.childElementCount
+
+    console.log(posicaoX, posicaoY)
+
+
+    //vertical(posicaoX,posicaoY);
+    //horizontal(posicaoX,posicaoY);
+    diagonalLeft(posicaoX,posicaoY)
 })
 
-function placar(){
+// function placar(){
     
-}
+// }
 
 
 
@@ -202,59 +214,6 @@ let array = [
     [],
     [],
 ]
-
-
-const sec = document.getElementById("sec")
-
-let elemento = "oi"
-let elemento02 = "oi"
-
-const bola01 = document.createElement("div")
-const bola02 = document.createElement("div")
-
-bola01.classList.add("player01")
-bola02.classList.add("player02")
-
-let player = "p1";
-
-sec.addEventListener("click", (evt)=>{
-
-    const bola01 = document.createElement("div")
-    const bola02 = document.createElement("div")
-    
-    bola01.classList.add("player01")
-    bola02.classList.add("player02")
-    
-    let coluna = evt.target;
-
-    if(coluna.classList[0] === "coluna"){
-
-        if(player === "p1"){
-        coluna.appendChild(bola01)
-        conditional(coluna, "p1")
-        player = "p2"
-        }
-
-        else if(player === "p2"){
-            coluna.appendChild(bola02)
-            conditional(coluna, "p2")
-            player = "p1"
-        }
-
-        let posicaoY = parseInt(coluna.id[coluna.id.length-1]) // o numero da col
-        let posicaoX = coluna.childElementCount
-        // vertical(posicaoX,posicaoY)
-        horizontal(posicaoX,posicaoY)
-        // console.log(diagonal(posicaoY,posicaoX))
-        // console.log(array[posicaoY-1][posicaoX-1]) // p1
-        // array[]
-        // console.log("resul", elemento02, array)
-        // console.log(array)
-        // if (array[posicaoY-1][posicaoX-1]===){
-
-        // }
-    }
-});
 
 function conditional(parametro,bola){
     if (parametro === coluna01){
@@ -280,26 +239,9 @@ function conditional(parametro,bola){
     }
 }
 
-// achar linha =>
-// coluna01.childElementCount
-
-
-
-
-/*
-
-se a coluna na linha 1 for igual
-
-
-*/
-
-
-
-
-
 function vertical(posicaoX,posicaoY){
     let coluna = array[posicaoY-1]
-    let score = 1;
+    let score = 0;
         if (coluna[posicaoX-1] === coluna[posicaoX-2]){
             score++
         }
@@ -312,83 +254,142 @@ function vertical(posicaoX,posicaoY){
         if (coluna[posicaoX-1] === coluna[posicaoX-5]){
             score++
         }
-        //  return(score)
+        
+        if (score===4) {
+            console.log("você ganhou")
+        }
 }
 
 function horizontal(posicaoX,posicaoY){
     let elemento = array[posicaoY-1][posicaoX-1]    
+    let score = 0;
+
+    
+
+    for (let i=0; i<array.length; i++){
+        if(elemento === array[i][posicaoX-1]){
+        score++}
+        else{
+            score = 0
+        }
+        if(score >= 4){
+            console.log("votória");
+            console.log(elemento);
+        }
+
+    }
+}
+
+function diagonalLeft(posicaoX,posicaoY){
+    let x =posicaoX-1
+    let y = posicaoY-1
+    let elemento = array[y][x]    
     let score = 1;
-    if (posicaoY > 3) {
-        if (elemento === array[posicaoY-2][posicaoX-1]){
-            score++
-        }
-        if (elemento === array[posicaoY-3][posicaoX-1]){
-            score++
-        }
-        if (elemento === array[posicaoY-4][posicaoX-1]){
-            score++
-        }
+    // let xDecrement = x
+    // let yDecremet = y
+
+    //console.log(elemento, array[y+1][x+1])
+
+
+    for (let i=1 ;i<5;i++) {
+
+        if(y+i<7   &&   y-i>-1   && x+i<6   &&   x-i>-1   ){
+
+            //console.log("elemento ", typeof(elemento), "array xy",  typeof(array[y+i][x+i]))
+
+            if(elemento === array[y+i][x+i]&& array[y+i][x+i].hasOwnProperty(Number)){
+                score++
+                
+            }
+            if(elemento === array[y-i][x-i] && array[y-i][x-i].hasOwnProperty(Number)){
+
+                score++
+
+            }
+            console.log(score)
+            score=0
+            console.log(score)
+
+            
+            if(elemento === array[y-i][x+i] && array[y-i][x+i].hasOwnProperty(Number)){
+
+                score++
+
+            }
+            if(elemento === array[y+i][x+i]&&array[y+i][x+i].hasOwnProperty(Number)){
+
+                score++
+
+            }
+
+            if(score>=2){
+
+                console.log(score, "ganhou")
+            }
+        
+    
     }
-    if (posicaoY <= 4) {
-        if (elemento === array[posicaoY][posicaoX-1]){
-            score++
-        }
-        if (elemento === array[posicaoY+1][posicaoX-1]){
-            score++
-        }
-        if (elemento === array[posicaoY+2][posicaoX-1]){
-            score++
-        }
-    }
+
+}
+
+    
+    
+
+
+
+
+
+
+
     console.log(score)
 }
 
 
-// let scoreRed = 0;
-// let scoreBlack = 0;
-// let score = 0;
+// // let scoreRed = 0;
+// // let scoreBlack = 0;
+// // let score = 0;
 
-// function diagonal(posicaoY, posicaoX){
-    // if (posicaoY-1 === 6){  
-    //     if (array[posicaoY-1][posicaoX-1] === array[posicaoY-2][posicaoX-2]){
-    //         score++
-    //     } 
-    // }
-    // else if (posicaoY-1 === 5){
-    //     if (array[posicaoY-1][posicaoX-1] === array[posicaoY][posicaoX-2]){
-    //         score++
-    //     }
-    //     if (array[posicaoY-1][posicaoX-1] === array[posicaoY-2][posicaoX-2]){
-    //         score++
-    //     } 
-    // }
-    // else if (posicaoY-1===0){
-    //     if (array[posicaoY-1][posicaoX-1] === array[posicaoY][posicaoX-2]){
-    //         score++
-    //     }
-    // }
-    // else  {
-    //     if (array[posicaoY-1][posicaoX-1] === array[posicaoY-2][posicaoX-2]){
-    //         score++
-    //     } 
-    //     if (array[posicaoY-1][posicaoX-1] === array[posicaoY-1][posicaoX-2]){
-    //         score++
-    //     }
-    // }
-    // return score
-// }
+// // function diagonal(posicaoY, posicaoX){
+//     // if (posicaoY-1 === 6){  
+//     //     if (array[posicaoY-1][posicaoX-1] === array[posicaoY-2][posicaoX-2]){
+//     //         score++
+//     //     } 
+//     // }
+//     // else if (posicaoY-1 === 5){
+//     //     if (array[posicaoY-1][posicaoX-1] === array[posicaoY][posicaoX-2]){
+//     //         score++
+//     //     }
+//     //     if (array[posicaoY-1][posicaoX-1] === array[posicaoY-2][posicaoX-2]){
+//     //         score++
+//     //     } 
+//     // }
+//     // else if (posicaoY-1===0){
+//     //     if (array[posicaoY-1][posicaoX-1] === array[posicaoY][posicaoX-2]){
+//     //         score++
+//     //     }
+//     // }
+//     // else  {
+//     //     if (array[posicaoY-1][posicaoX-1] === array[posicaoY-2][posicaoX-2]){
+//     //         score++
+//     //     } 
+//     //     if (array[posicaoY-1][posicaoX-1] === array[posicaoY-1][posicaoX-2]){
+//     //         score++
+//     //     }
+//     // }
+//     // return score
+// // }
 
 
-function diagonaLeft(posicaoY,posicaoX){
+// function diagonaLeft(posicaoY,posicaoX){
     
-    if (posicaoY-1===0){
-        if (array[posicaoY-1][posicaoX-1] === array[posicaoY][posicaoX-2]){
-            score++
-        }
-    }
-    else {
-        if (array[posicaoY-1][posicaoX-1] === array[posicaoY-2][posicaoX-2]){
-        score++
-        } 
-    }
-}
+//     if (posicaoY-1===0){
+//         if (array[posicaoY-1][posicaoX-1] === array[posicaoY][posicaoX-2]){
+//             score++
+//         }
+//     }
+//     else {
+//         if (array[posicaoY-1][posicaoX-1] === array[posicaoY-2][posicaoX-2]){
+//         score++
+//         } 
+//     }
+// }
