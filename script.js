@@ -6,6 +6,9 @@ let tab05 = ''
 let tab06 = ''
 let tab07 = ''
 
+var count_player_one = 0
+var count_player_two = 0
+
 let title = document.createElement("h1")
 title.innerHTML = "Lig-4"
 title.classList.add("title")
@@ -38,7 +41,7 @@ function initial_table(){
  
 }
 initial_table()
-
+placar()
 
 
 const sec = document.getElementById("sec")
@@ -180,5 +183,32 @@ sec.addEventListener("click", (evt)=>{
 })
 
 function placar(){
-    
+    const placar = document.createElement("div")
+    placar.classList.add("placar")
+
+    const player01 = document.createElement("div")
+    player01.classList.add("player01")
+
+    const vs = document.createElement("p")
+    vs.innerText = count_player_one+" VS "+count_player_two
+
+    const player02 = document.createElement("div")
+    player02.classList.add("player02")
+
+    placar.appendChild(player01)
+    placar.appendChild(vs)
+    placar.appendChild(player02)
+
+    document.body.appendChild(placar)
 }
+
+// function temaLove(){
+
+// }
+
+// function apagar(){
+//     const conteudo = document.querySelectorAll("body >")
+
+//     for(let i = 0; i <conteudo.length; i++)
+
+// }
