@@ -182,3 +182,213 @@ sec.addEventListener("click", (evt)=>{
 function placar(){
     
 }
+
+
+
+let coluna01 = document.getElementById("coluna01")
+let coluna02 = document.getElementById("coluna02")
+let coluna03 = document.getElementById("coluna03")
+let coluna04 = document.getElementById("coluna04")
+let coluna05 = document.getElementById("coluna05")
+let coluna06 = document.getElementById("coluna06")
+let coluna07 = document.getElementById("coluna07")
+
+let array = [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+]
+
+
+const sec = document.getElementById("sec")
+
+let elemento = "oi"
+let elemento02 = "oi"
+
+const bola01 = document.createElement("div")
+const bola02 = document.createElement("div")
+
+bola01.classList.add("player01")
+bola02.classList.add("player02")
+
+let player = "p1";
+
+sec.addEventListener("click", (evt)=>{
+
+    const bola01 = document.createElement("div")
+    const bola02 = document.createElement("div")
+    
+    bola01.classList.add("player01")
+    bola02.classList.add("player02")
+    
+    let coluna = evt.target;
+
+    if(coluna.classList[0] === "coluna"){
+
+        if(player === "p1"){
+        coluna.appendChild(bola01)
+        conditional(coluna, "p1")
+        player = "p2"
+        }
+
+        else if(player === "p2"){
+            coluna.appendChild(bola02)
+            conditional(coluna, "p2")
+            player = "p1"
+        }
+
+        let posicaoY = parseInt(coluna.id[coluna.id.length-1]) // o numero da col
+        let posicaoX = coluna.childElementCount
+        // vertical(posicaoX,posicaoY)
+        horizontal(posicaoX,posicaoY)
+        // console.log(diagonal(posicaoY,posicaoX))
+        // console.log(array[posicaoY-1][posicaoX-1]) // p1
+        // array[]
+        // console.log("resul", elemento02, array)
+        // console.log(array)
+        // if (array[posicaoY-1][posicaoX-1]===){
+
+        // }
+    }
+});
+
+function conditional(parametro,bola){
+    if (parametro === coluna01){
+        array[0].push(bola)
+    } 
+    if (parametro === coluna02){
+        array[1].push(bola)
+    }
+    if (parametro === coluna03){
+        array[2].push(bola)
+    } 
+    if (parametro === coluna04){
+        array[3].push(bola)
+    } 
+    if (parametro === coluna05){
+        array[4].push(bola)
+    }
+    if (parametro === coluna06){
+        array[5].push(bola)
+    }
+    if (parametro === coluna07){
+        array[6].push(bola)
+    }
+}
+
+// achar linha =>
+// coluna01.childElementCount
+
+
+
+
+/*
+
+se a coluna na linha 1 for igual
+
+
+*/
+
+
+
+
+
+function vertical(posicaoX,posicaoY){
+    let coluna = array[posicaoY-1]
+    let score = 1;
+        if (coluna[posicaoX-1] === coluna[posicaoX-2]){
+            score++
+        }
+        if (coluna[posicaoX-1] === coluna[posicaoX-3]){
+            score++
+        }
+        if (coluna[posicaoX-1] === coluna[posicaoX-4]){
+            score++
+        }
+        if (coluna[posicaoX-1] === coluna[posicaoX-5]){
+            score++
+        }
+        //  return(score)
+}
+
+function horizontal(posicaoX,posicaoY){
+    let elemento = array[posicaoY-1][posicaoX-1]    
+    let score = 1;
+    if (posicaoY > 3) {
+        if (elemento === array[posicaoY-2][posicaoX-1]){
+            score++
+        }
+        if (elemento === array[posicaoY-3][posicaoX-1]){
+            score++
+        }
+        if (elemento === array[posicaoY-4][posicaoX-1]){
+            score++
+        }
+    }
+    if (posicaoY <= 4) {
+        if (elemento === array[posicaoY][posicaoX-1]){
+            score++
+        }
+        if (elemento === array[posicaoY+1][posicaoX-1]){
+            score++
+        }
+        if (elemento === array[posicaoY+2][posicaoX-1]){
+            score++
+        }
+    }
+    console.log(score)
+}
+
+
+// let scoreRed = 0;
+// let scoreBlack = 0;
+// let score = 0;
+
+// function diagonal(posicaoY, posicaoX){
+    // if (posicaoY-1 === 6){  
+    //     if (array[posicaoY-1][posicaoX-1] === array[posicaoY-2][posicaoX-2]){
+    //         score++
+    //     } 
+    // }
+    // else if (posicaoY-1 === 5){
+    //     if (array[posicaoY-1][posicaoX-1] === array[posicaoY][posicaoX-2]){
+    //         score++
+    //     }
+    //     if (array[posicaoY-1][posicaoX-1] === array[posicaoY-2][posicaoX-2]){
+    //         score++
+    //     } 
+    // }
+    // else if (posicaoY-1===0){
+    //     if (array[posicaoY-1][posicaoX-1] === array[posicaoY][posicaoX-2]){
+    //         score++
+    //     }
+    // }
+    // else  {
+    //     if (array[posicaoY-1][posicaoX-1] === array[posicaoY-2][posicaoX-2]){
+    //         score++
+    //     } 
+    //     if (array[posicaoY-1][posicaoX-1] === array[posicaoY-1][posicaoX-2]){
+    //         score++
+    //     }
+    // }
+    // return score
+// }
+
+
+function diagonaLeft(posicaoY,posicaoX){
+    
+    if (posicaoY-1===0){
+        if (array[posicaoY-1][posicaoX-1] === array[posicaoY][posicaoX-2]){
+            score++
+        }
+    }
+    else {
+        if (array[posicaoY-1][posicaoX-1] === array[posicaoY-2][posicaoX-2]){
+        score++
+        } 
+    }
+}
