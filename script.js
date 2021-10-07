@@ -202,13 +202,25 @@ function placar(){
     document.body.appendChild(placar)
 }
 
-// function temaLove(){
+function temaLove(){
+    const love = document.querySelector("#sec")
+    console.log(love)
+    love.classList.remove("sec")
+    love.classList.add("sec_love")
+   
 
-// }
+
+}
+
+temaLove()
 
 // function apagar(){
-//     const conteudo = document.querySelectorAll("body >")
+//     const conteudo = document.querySelectorAll("body > .sec")
 
-//     for(let i = 0; i <conteudo.length; i++)
+//     for(let i = 0; i <conteudo.length; i++){
+//         conteudo[i].remove()
+//     }
 
 // }
+
+// apagar();
