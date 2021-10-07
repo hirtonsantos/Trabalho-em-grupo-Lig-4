@@ -183,13 +183,25 @@ sec.addEventListener("click", (evt)=>{
     let posicaoY = parseInt(coluna.id[coluna.id.length-1])
     let posicaoX = coluna.childElementCount
 
-  
+    
+    vitoriaTeste(posicaoX,posicaoY)
 
 
-    //vertical(posicaoX,posicaoY);
-    //horizontal(posicaoX,posicaoY);
-    diagonalLeft(posicaoX,posicaoY)
 })
+
+function vitoriaTeste(posicaoX,posicaoY) {
+
+    vertical(posicaoX,posicaoY);
+    horizontal(posicaoX,posicaoY);
+    diagonal(posicaoX,posicaoY)
+}
+
+function vitoriaConcluida(vencedor){
+
+    console.log(vencedor + " Ganhou")
+
+
+}
 
 // function placar(){
     
@@ -241,7 +253,8 @@ function conditional(parametro,bola){
 
 function vertical(posicaoX,posicaoY){
     let coluna = array[posicaoY-1]
-    let score = 0;
+    let elemento = array[posicaoY-1][posicaoX-1] 
+    let score = 1;
         if (coluna[posicaoX-1] === coluna[posicaoX-2]){
             score++
         }
@@ -256,15 +269,13 @@ function vertical(posicaoX,posicaoY){
         }
         
         if (score===4) {
-            console.log("você ganhou")
+            vitoriaConcluida(elemento)
         }
 }
 
 function horizontal(posicaoX,posicaoY){
     let elemento = array[posicaoY-1][posicaoX-1]    
     let score = 0;
-
-    
 
     for (let i=0; i<array.length; i++){
         if(elemento === array[i][posicaoX-1]){
@@ -273,14 +284,14 @@ function horizontal(posicaoX,posicaoY){
             score = 0
         }
         if(score >= 4){
-            console.log("votória");
-            console.log(elemento);
+            vitoriaConcluida(elemento);
+           
         }
 
     }
 }
 
-function diagonalLeft(posicaoX,posicaoY){
+function diagonal(posicaoX,posicaoY){
     let x =posicaoX-1
     let y = posicaoY-1
     let elemento = array[y][x]    
@@ -288,61 +299,50 @@ function diagonalLeft(posicaoX,posicaoY){
     let score2 = 1;
     let j =1
     let k =1
-   
+    let dirTop = true
+    let dirBot = true
+    let esqTop = true
+    let esqBot = true
 
-   for (let i = y; i < 6; i++) {
+    for (let i = y; i < 6; i++) {
        
-    if(elemento === array[y+j][x+j]){
-        score1++
-    }
-    else{
-        score1=1
-    }
-    if(elemento === array[y+j][x-j]){
-        score2++
-    }
-    else{
-        score2 = 1
-    }
+        if(elemento === array[y+j][x+j] && dirTop === true ){
+            score1++
+        }
+        else{dirTop=false}
+
+        if(elemento === array[y+j][x-j]  && dirBot === true ){
+            score2++
+        }
+        else{dirBot = false}
+
     j++
-}
+        if(score2>=4||score1>=4){
+            vitoriaConcluida(elemento);
+        }
+    }
 
     for (let i = y; i > 0; i--) {
 
-        
-
         if(y-k>-1){
-       
-        if(elemento === array[y-k][x-k]){
-    
-            
-            score1++
-            
-        }
-        else {
-            score1 = 1
-        }
-        if(elemento === array[y-k][x+k]){
-    
-            
-            score2++
-            
-        }
-        else{
-            score2=1
-        }
-    
-    }
-        k++
 
-       
-    }
-   
-    console.log(score1, score2)
+            if(elemento === array[y-k][x-k]  &&  esqBot === true ){  
+                score1++  
+            }
+            else{esqBot = false}
+            if(elemento === array[y-k][x+k] && esqTop === true ){   
+                score2++
+            }
+            else{esqTop = false}
+            
+        }
+    k++
+    if(score2>=4||score1>=4){
 
-    if(score1>=4||score2>=4){
-
-        console.log("vitória",elemento)
+        vitoriaConcluida(elemento);
 
     }
+
+    }
+    
 }
