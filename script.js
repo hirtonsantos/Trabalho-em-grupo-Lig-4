@@ -54,9 +54,16 @@ sec.addEventListener("click", (evt)=>{
     
     bola01.classList.add("player01","slide-in-top")
     bola02.classList.add("player02","slide-in-top")
+
+
     
-    let coluna = evt.target;
-    // console.log()    
+    let coluna = evt.target;  
+
+    if(coluna.classList[0] != "coluna"){
+        coluna =evt.target.parentElement
+    }
+    
+    
 
     if(coluna.classList[0] === "coluna"){
         if(player === "p1"){
