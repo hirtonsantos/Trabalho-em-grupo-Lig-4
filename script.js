@@ -214,6 +214,8 @@ function temaLove(){
 
 temaLove()
 
+
+
 // function apagar(){
 //     const conteudo = document.querySelectorAll("body > .sec")
 
