@@ -29,6 +29,19 @@ h1{
 
 }
 
+.sec_love {
+  display: flex;
+  flex-direction: row;
+  
+  /* background-color: burlywood; */
+  background:url('./image/love.jpg') no-repeat center;
+  background-size: cover;
+  box-shadow: 6px 8px 10px 10px #c00;
+  max-width: 500px;
+  margin: 0 auto;
+
+}
+
 .coluna {
     display: flex;
     flex-direction: column-reverse;

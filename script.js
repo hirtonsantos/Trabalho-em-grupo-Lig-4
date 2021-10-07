@@ -6,6 +6,9 @@ let tab05 = ''
 let tab06 = ''
 let tab07 = ''
 
+var count_player_one = 0
+var count_player_two = 0
+
 let title = document.createElement("h1")
 title.innerHTML = "Lig-4"
 title.classList.add("title")
@@ -34,7 +37,7 @@ function initial_table(){
  
 }
 initial_table()
-
+placar()
 
 
 const sec = document.getElementById("sec")
@@ -61,7 +64,7 @@ sec.addEventListener("click", (evt)=>{
     if(coluna.classList[0] === "coluna"){
         if(player === "p1"){
             if(coluna.id === "coluna01") {
-                if (tab01.length < 7) {
+                if (tab01.length < 6) {
                     coluna.appendChild(bola01)
                     tab01 += '1'
                     player = "p2"
@@ -69,7 +72,7 @@ sec.addEventListener("click", (evt)=>{
                 }
             }
             if(coluna.id === "coluna02") {
-                if (tab02.length < 7) {
+                if (tab02.length < 6) {
                     coluna.appendChild(bola01)
                     tab02 += '1'
                     player = "p2"
@@ -78,7 +81,7 @@ sec.addEventListener("click", (evt)=>{
                 }
             }
             if(coluna.id === "coluna03") {
-                if (tab03.length < 7) {
+                if (tab03.length < 6) {
                     coluna.appendChild(bola01)
                     tab03 += '1'
                     player = "p2"
@@ -86,7 +89,7 @@ sec.addEventListener("click", (evt)=>{
                 }
             }
             if(coluna.id === "coluna04") {
-                if (tab04.length < 7) {
+                if (tab04.length < 6) {
                     coluna.appendChild(bola01)
                     tab04 += '1'
                     player = "p2"
@@ -94,7 +97,7 @@ sec.addEventListener("click", (evt)=>{
                 }
             }
             if(coluna.id === "coluna05") {
-                if (tab05.length < 7) {
+                if (tab05.length < 6) {
                     coluna.appendChild(bola01)
                     tab05 += '1'
                     player = "p2"
@@ -103,7 +106,7 @@ sec.addEventListener("click", (evt)=>{
 
             }
             if(coluna.id === "coluna06") {
-                if (tab06.length < 7) {
+                if (tab06.length < 6) {
                     coluna.appendChild(bola01)
                     tab06 += '1'
                     player = "p2"
@@ -111,7 +114,7 @@ sec.addEventListener("click", (evt)=>{
                 }
             }
             if(coluna.id === "coluna07") {
-                if (tab07.length < 7) {
+                if (tab07.length < 6) {
                     coluna.appendChild(bola01)
                     tab07 += '1'
                     player = "p2"
@@ -122,7 +125,7 @@ sec.addEventListener("click", (evt)=>{
 
         else if(player === "p2"){
             if(coluna.id === "coluna01") {
-                if (tab01.length < 7) {
+                if (tab01.length < 6) {
                     coluna.appendChild(bola02)
                     player = "p1"
                     tab01 += '2'
@@ -130,7 +133,7 @@ sec.addEventListener("click", (evt)=>{
                 }
             }
             if(coluna.id === "coluna02") {
-                if (tab02.length < 7) {
+                if (tab02.length < 6) {
                     coluna.appendChild(bola02)
                     player = "p1"
                     tab02 += '2'
@@ -138,7 +141,7 @@ sec.addEventListener("click", (evt)=>{
                 }
             }
             if(coluna.id === "coluna03") {
-                if (tab03.length < 7) {
+                if (tab03.length < 6) {
                     coluna.appendChild(bola02)
                     player = "p1"
                     tab03 += '2'
@@ -146,7 +149,7 @@ sec.addEventListener("click", (evt)=>{
                 }
             }
             if(coluna.id === "coluna04") {
-                if (tab04.length < 7) {
+                if (tab04.length < 6) {
                     coluna.appendChild(bola02)
                     player = "p1"
                     tab04 += '2'
@@ -154,7 +157,7 @@ sec.addEventListener("click", (evt)=>{
                 }
             }
             if(coluna.id === "coluna05") {
-                if (tab05.length < 7) {
+                if (tab05.length < 6) {
                     coluna.appendChild(bola02)
                     player = "p1"
                     tab05 += '2'
@@ -162,7 +165,7 @@ sec.addEventListener("click", (evt)=>{
                 }
             }
             if(coluna.id === "coluna06") {
-                if (tab06.length < 7) {
+                if (tab06.length < 6) {
                     coluna.appendChild(bola02)
                     player = "p1"
                     tab06 += '2'
@@ -170,7 +173,7 @@ sec.addEventListener("click", (evt)=>{
                 }
             }
             if(coluna.id === "coluna07") {
-                if (tab07.length < 7) {
+                if (tab07.length < 6) {
                     coluna.appendChild(bola02)
                     player = "p1"
                     tab07 += '2'
@@ -199,6 +202,19 @@ function vitoriaTeste(posicaoX,posicaoY) {
 function vitoriaConcluida(vencedor){
 
     console.log(vencedor + " Ganhou")
+    if(vencedor === "p1"){
+        const placar = document.querySelector("p")
+        count_player_one +=1    
+        placar.innerText = count_player_one+" VS "+count_player_two
+
+    }else{
+
+        const placar = document.querySelector("p")
+        count_player_two +=1 
+        placar.innerText = count_player_one+" VS "+count_player_two
+
+    }
+    
 
 
 }
@@ -346,3 +362,47 @@ function diagonal(posicaoX,posicaoY){
     }
     
 }
+function placar(){
+    const placar = document.createElement("div")
+    placar.classList.add("placar")
+
+    const player01 = document.createElement("div")
+    player01.classList.add("player01")
+
+    const vs = document.createElement("p")
+    vs.innerText = count_player_one+" VS "+count_player_two
+
+    const player02 = document.createElement("div")
+    player02.classList.add("player02")
+
+    placar.appendChild(player01)
+    placar.appendChild(vs)
+    placar.appendChild(player02)
+
+    document.body.appendChild(placar)
+}
+
+function temaLove(){
+    const love = document.querySelector("#sec")
+    console.log(love)
+    love.classList.remove("sec")
+    love.classList.add("sec_love")
+   
+
+
+}
+
+// temaLove()
+
+
+
+// function apagar(){
+//     const conteudo = document.querySelectorAll("body > .sec")
+
+//     for(let i = 0; i <conteudo.length; i++){
+//         conteudo[i].remove()
+//     }
+
+// }
+
+// apagar();
