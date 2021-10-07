@@ -183,7 +183,7 @@ sec.addEventListener("click", (evt)=>{
     let posicaoY = parseInt(coluna.id[coluna.id.length-1])
     let posicaoX = coluna.childElementCount
 
-    console.log(posicaoX, posicaoY)
+  
 
 
     //vertical(posicaoX,posicaoY);
@@ -284,112 +284,65 @@ function diagonalLeft(posicaoX,posicaoY){
     let x =posicaoX-1
     let y = posicaoY-1
     let elemento = array[y][x]    
-    let score = 1;
-    // let xDecrement = x
-    // let yDecremet = y
+    let score1 = 1;
+    let score2 = 1;
+    let j =1
+    let k =1
+   
 
-    //console.log(elemento, array[y+1][x+1])
+   for (let i = y; i < 6; i++) {
+       
+    if(elemento === array[y+j][x+j]){
+        score1++
+    }
+    else{
+        score1=1
+    }
+    if(elemento === array[y+j][x-j]){
+        score2++
+    }
+    else{
+        score2 = 1
+    }
+    j++
+}
 
+    for (let i = y; i > 0; i--) {
 
-    for (let i=1 ;i<5;i++) {
-
-        if(y+i<7   &&   y-i>-1   && x+i<6   &&   x-i>-1   ){
-
-            //console.log("elemento ", typeof(elemento), "array xy",  typeof(array[y+i][x+i]))
-
-            if(elemento === array[y+i][x+i]&& array[y+i][x+i].hasOwnProperty(Number)){
-                score++
-                
-            }
-            if(elemento === array[y-i][x-i] && array[y-i][x-i].hasOwnProperty(Number)){
-
-                score++
-
-            }
-            console.log(score)
-            score=0
-            console.log(score)
-
-            
-            if(elemento === array[y-i][x+i] && array[y-i][x+i].hasOwnProperty(Number)){
-
-                score++
-
-            }
-            if(elemento === array[y+i][x+i]&&array[y+i][x+i].hasOwnProperty(Number)){
-
-                score++
-
-            }
-
-            if(score>=2){
-
-                console.log(score, "ganhou")
-            }
         
+
+        if(y-k>-1){
+       
+        if(elemento === array[y-k][x-k]){
+    
+            
+            score1++
+            
+        }
+        else {
+            score1 = 1
+        }
+        if(elemento === array[y-k][x+k]){
+    
+            
+            score2++
+            
+        }
+        else{
+            score2=1
+        }
     
     }
+        k++
 
+       
+    }
+   
+    console.log(score1, score2)
+
+    if(score1>=4||score2>=4){
+
+        console.log("vitória",elemento)
+
+    }
 }
-
-    
-    
-
-
-
-
-
-
-
-    console.log(score)
-}
-
-
-// // let scoreRed = 0;
-// // let scoreBlack = 0;
-// // let score = 0;
-
-// // function diagonal(posicaoY, posicaoX){
-//     // if (posicaoY-1 === 6){  
-//     //     if (array[posicaoY-1][posicaoX-1] === array[posicaoY-2][posicaoX-2]){
-//     //         score++
-//     //     } 
-//     // }
-//     // else if (posicaoY-1 === 5){
-//     //     if (array[posicaoY-1][posicaoX-1] === array[posicaoY][posicaoX-2]){
-//     //         score++
-//     //     }
-//     //     if (array[posicaoY-1][posicaoX-1] === array[posicaoY-2][posicaoX-2]){
-//     //         score++
-//     //     } 
-//     // }
-//     // else if (posicaoY-1===0){
-//     //     if (array[posicaoY-1][posicaoX-1] === array[posicaoY][posicaoX-2]){
-//     //         score++
-//     //     }
-//     // }
-//     // else  {
-//     //     if (array[posicaoY-1][posicaoX-1] === array[posicaoY-2][posicaoX-2]){
-//     //         score++
-//     //     } 
-//     //     if (array[posicaoY-1][posicaoX-1] === array[posicaoY-1][posicaoX-2]){
-//     //         score++
-//     //     }
-//     // }
-//     // return score
-// // }
-
-
-// function diagonaLeft(posicaoY,posicaoX){
-    
-//     if (posicaoY-1===0){
-//         if (array[posicaoY-1][posicaoX-1] === array[posicaoY][posicaoX-2]){
-//             score++
-//         }
-//     }
-//     else {
-//         if (array[posicaoY-1][posicaoX-1] === array[posicaoY-2][posicaoX-2]){
-//         score++
-//         } 
-//     }
-// }
