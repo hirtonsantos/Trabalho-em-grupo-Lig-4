@@ -68,35 +68,35 @@ sec.addEventListener("click", (evt)=>{
     if(coluna.classList[0] === "coluna"){
         if(player === "p1"){
             if(coluna.id === "coluna01") {
-                if (tab01.length < 7) {
+                if (tab01.length < 6) {
                     coluna.appendChild(bola01)
                     tab01 += '1'
                     player = "p2"
                 }
             }
             if(coluna.id === "coluna02") {
-                if (tab02.length < 7) {
+                if (tab02.length < 6) {
                     coluna.appendChild(bola01)
                     tab02 += '1'
                     player = "p2"
                 }
             }
             if(coluna.id === "coluna03") {
-                if (tab03.length < 7) {
+                if (tab03.length < 6) {
                     coluna.appendChild(bola01)
                     tab03 += '1'
                     player = "p2"
                 }
             }
             if(coluna.id === "coluna04") {
-                if (tab04.length < 7) {
+                if (tab04.length < 6) {
                     coluna.appendChild(bola01)
                     tab04 += '1'
                     player = "p2"
                 }
             }
             if(coluna.id === "coluna05") {
-                if (tab05.length < 7) {
+                if (tab05.length < 6) {
                     coluna.appendChild(bola01)
                     tab05 += '1'
                     player = "p2"
@@ -104,14 +104,14 @@ sec.addEventListener("click", (evt)=>{
 
             }
             if(coluna.id === "coluna06") {
-                if (tab06.length < 7) {
+                if (tab06.length < 6) {
                     coluna.appendChild(bola01)
                     tab06 += '1'
                     player = "p2"
                 }
             }
             if(coluna.id === "coluna07") {
-                if (tab07.length < 7) {
+                if (tab07.length < 6) {
                     coluna.appendChild(bola01)
                     tab07 += '1'
                     player = "p2"
@@ -121,14 +121,14 @@ sec.addEventListener("click", (evt)=>{
 
         else if(player === "p2"){
             if(coluna.id === "coluna01") {
-                if (tab01.length < 7) {
+                if (tab01.length < 6) {
                     coluna.appendChild(bola02)
                     player = "p1"
                     tab01 += '2'
                 }
             }
             if(coluna.id === "coluna02") {
-                if (tab02.length < 7) {
+                if (tab02.length < 6) {
                     coluna.appendChild(bola02)
                     player = "p1"
                     tab02 += '2'
@@ -137,35 +137,35 @@ sec.addEventListener("click", (evt)=>{
                 }
             }
             if(coluna.id === "coluna03") {
-                if (tab03.length < 7) {
+                if (tab03.length < 6) {
                     coluna.appendChild(bola02)
                     player = "p1"
                     tab03 += '2'
                 }
             }
             if(coluna.id === "coluna04") {
-                if (tab04.length < 7) {
+                if (tab04.length < 6) {
                     coluna.appendChild(bola02)
                     player = "p1"
                     tab04 += '2'
                 }
             }
             if(coluna.id === "coluna05") {
-                if (tab05.length < 7) {
+                if (tab05.length < 6) {
                     coluna.appendChild(bola02)
                     player = "p1"
                     tab05 += '2'
                 }
             }
             if(coluna.id === "coluna06") {
-                if (tab06.length < 7) {
+                if (tab06.length < 6) {
                     coluna.appendChild(bola02)
                     player = "p1"
                     tab06 += '2'
                 }
             }
             if(coluna.id === "coluna07") {
-                if (tab07.length < 7) {
+                if (tab07.length < 6) {
                     coluna.appendChild(bola02)
                     player = "p1"
                     tab07 += '2'
