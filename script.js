@@ -201,6 +201,8 @@ function vitoriaTeste(posicaoX,posicaoY) {
     vertical(posicaoX,posicaoY);
     horizontal(posicaoX,posicaoY);
     diagonal(posicaoX,posicaoY)
+    empate()
+    
 }
 
 function vitoriaConcluida(vencedor){
@@ -209,11 +211,6 @@ function vitoriaConcluida(vencedor){
 
 
 }
-
-// function placar(){
-    
-// }
-
 
 
 let coluna01 = document.getElementById("coluna01")
@@ -269,9 +266,6 @@ function vertical(posicaoX,posicaoY){
             score++
         }
         if (coluna[posicaoX-1] === coluna[posicaoX-4]){
-            score++
-        }
-        if (coluna[posicaoX-1] === coluna[posicaoX-5]){
             score++
         }
         
@@ -353,3 +347,20 @@ function diagonal(posicaoX,posicaoY){
     }
     
 }
+function empate(){
+    let soma = 1
+    let texto = "voce empatou"
+    for (let i = 0; i < 7; i++){
+        for (let j = 0; j < 7; j++){
+            if (array[i][j] === "p1" ||array[i][j] === "p2"){
+                soma++
+            }
+        }
+    }
+    if (soma >= 43){
+        console.log (soma,texto)
+        //chamar empate aqui
+    }
+}
+
+
