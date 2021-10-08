@@ -228,6 +228,7 @@ function vitoriaTeste(posicaoX,posicaoY) {
     vertical(posicaoX,posicaoY);
     horizontal(posicaoX,posicaoY);
     diagonal(posicaoX,posicaoY)
+    empate()
 }
 
 function vitoriaConcluida(vencedor){
@@ -477,6 +478,42 @@ function diagonal(posicaoX,posicaoY){
     }
     
 }
+
+function empate(){
+    let soma = 1
+    let texto = "voce empatou"
+    for (let i = 0; i < 7; i++){
+        for (let j = 0; j < 7; j++){
+            if (array[i][j] === "p1" ||array[i][j] === "p2"){
+                soma++
+            }
+        }
+    }
+    if (soma >= 43){
+        console.log (soma,texto)
+        const result = document.querySelector("#myModal")
+        const content = document.createElement("div")
+        content.classList.add("container-modal")
+
+
+        const btn = document.createElement("a")
+        btn.setAttribute("id", "btn")
+        btn.innerText = "Continuar"
+    
+        const frase = document.createElement("div")
+        frase.innerText = " Empatou!"
+        frase.classList.add("winner")
+    
+        content.appendChild(frase)
+        btn.innerHTML = "<a onclick=del()>Continuar</a>"
+        content.appendChild(btn)
+        result.classList.add("modal")
+        result.style.display = "block"
+        result.appendChild(content)
+    }
+}
+
+
 function placar(){
     const placar = document.createElement("div")
     placar.classList.add("placar")
