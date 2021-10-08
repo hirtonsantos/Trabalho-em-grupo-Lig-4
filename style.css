@@ -7,6 +7,7 @@ body, ul , li, section {
 
 body{
     display: flex;
+    background-color: #111111;
     justify-content: center;
     /* margin: 0 auto; */
     flex-direction: column;
