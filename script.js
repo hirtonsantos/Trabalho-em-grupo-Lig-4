@@ -10,10 +10,15 @@ let count_player_one = 0
 let count_player_two = 0
 
 let title = document.createElement("h1")
+let currentPlayer = document.createElement("div");
+
+currentPlayer.classList.add("jogada01")
 title.innerHTML = "Lig-4"
 title.classList.add("title")
 
+
 document.body.appendChild(title)
+document.body.appendChild(currentPlayer)
 
 const body = document.getElementsByTagName('body')[0]
 const section = document.createElement('section')
@@ -71,6 +76,20 @@ sec.addEventListener("click", (evt)=>{
     bola02.classList.add("player02","slide-in-top")
     
     let coluna = evt.target;
+
+    if(coluna.classList[0] != "coluna"){
+        coluna =evt.target.parentElement
+    }
+
+    if(player === "p1"){
+
+        currentPlayer.classList.remove("jogada01")
+        currentPlayer.classList.add("jogada02")
+    }
+    else{
+        currentPlayer.classList.remove("jogada02")
+        currentPlayer.classList.add("jogada01")
+    }
      
 
     if(coluna.classList[0] === "coluna"){

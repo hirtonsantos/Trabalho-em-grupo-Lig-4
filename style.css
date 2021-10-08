@@ -28,6 +28,28 @@ h1{
     font-size: 40px;
 }
 
+.jogada01 {
+
+  height: 100px;
+  width: 100px;
+  background: url('./image/Sangue.jpg');
+  background-size: cover;
+  margin: 0 auto;
+  border-radius: 50%;
+
+}
+
+.jogada02 {
+
+  height: 100px;
+  width: 100px;
+  background: url('./image/facada.jpg') center;
+  background-size: cover;
+  margin: 0 auto;
+  border-radius: 50%;
+
+}
+
 
 
 
@@ -54,6 +76,7 @@ h1{
   justify-content: center;
   max-width: 500px;
   background-color: rgba(243, 228, 228, 0.412);
+  border-radius: 5px;
 }
 
 .placar p {
@@ -236,8 +259,42 @@ h1{
     }
   }
 
-  @media screen and (max-width:425px){
+  @media screen and (min-width:425px){
    
+    body{
+      background-color: #111111;
+      background: url(https://i.pinimg.com/originals/8a/8f/ac/8a8facdee1824660ab4dd962d9e8d0b9.jpg) center;
+      background-size: cover;
+      
+      
+    
+    }
+
+
+    #sec {
+      max-width: none;
+      margin-top: 50px;
+    }
+
+    .coluna {
+
+      width: 60px;
+      height: 390px;
+      
+
+
+    }
+    .player01, .player02{
+
+      width: 60px;
+      height: 60px;
+    }
+
+    .container-modal {
+
+      margin: 10% auto;
+
+    }
 
   
   }
