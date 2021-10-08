@@ -1,18 +1,15 @@
-let tab01 = ''
-let tab02 = ''
-let tab03 = ''
-let tab04 = ''
-let tab05 = ''
-let tab06 = ''
-let tab07 = ''
 
 let count_player_one = 0
 let count_player_two = 0
+let player = "p1";
+
+function pageConstruct() {
 
 let title = document.createElement("h1")
 let currentPlayer = document.createElement("div");
 
 currentPlayer.classList.add("jogada01")
+currentPlayer.id = "jogadorSeguinte"
 title.innerHTML = "Lig-4"
 title.classList.add("title")
 
@@ -26,24 +23,13 @@ body.appendChild(section)
 section.classList.add('sec')
 section.setAttribute('id', 'sec')
 
+}
+
 function initial_table(){
 
     let coluna = 7;
     let section = document.querySelector('section')
- 
-
-    
-
     for (let i = 0; i < coluna; i++) {
-        if(i === 3){
-            const result = document.createElement('div')
-            section.appendChild(result)
-    
-            result.setAttribute('id', 'myModal')
-
-            
-
-        }
         const colunas = document.createElement('div')
         section.appendChild(colunas)
         colunas.setAttribute('class','coluna')
@@ -51,36 +37,57 @@ function initial_table(){
         console.log(colunas)
     }
 
- console.log('passei aqui')
+
 }
+pageConstruct()
 initial_table()
 placar()
 
 
-const sec = document.getElementById("sec")
 
-const bola01 = document.createElement("div")
-const bola02 = document.createElement("div")
 
-bola01.classList.add("player01")
-bola02.classList.add("player02")
 
-let player = "p1";
+const tabuleiro = document.getElementById("sec")
 
-sec.addEventListener("click", (evt)=>{
+
+
+
+tabuleiro.addEventListener("click", (evt)=>{
+ 
+    bolinhaAppend(evt)
+    console.log("click")
+
+})
+
+
+function bolinhaAppend(evt) {
 
     const bola01 = document.createElement("div")
     const bola02 = document.createElement("div")
     
     bola01.classList.add("player01","slide-in-top")
     bola02.classList.add("player02","slide-in-top")
+
+
+
+//-------CAPTURANDO O ELEMENTO CLICADO E A POSIÇÃO XY DA BOLINHA (COLUNA)------//
     
     let coluna = evt.target;
 
+            // ------- TESTANDO SE O CLICK FOU DIRETO NA COLUNA OU NA BOLINHA ----//
     if(coluna.classList[0] != "coluna"){
         coluna =evt.target.parentElement
     }
 
+    let colunaIndice = coluna.childElementCount
+    let posicaoY = parseInt(coluna.id[coluna.id.length-1])
+    let posicaoX = colunaIndice+1
+    console.log(posicaoY, posicaoX, colunaIndice)
+    
+
+//----ALTERNANDO A CLASSE DO DISPLAY DO PRÓXIMO JOGADOR ------//
+
+let currentPlayer = document.getElementById("jogadorSeguinte")
     if(player === "p1"){
 
         currentPlayer.classList.remove("jogada01")
@@ -91,137 +98,31 @@ sec.addEventListener("click", (evt)=>{
         currentPlayer.classList.add("jogada01")
     }
      
-
+//------TESTANDO ONDE ACONTECEU O CLIQUE E DEPOSITANDO A BOLINHA -----//
     if(coluna.classList[0] === "coluna"){
+ 
         if(player === "p1"){
-            if(coluna.id === "coluna01") {
-                if (tab01.length < 6) {
-                    coluna.appendChild(bola01)
-                    tab01 += '1'
-                    player = "p2"
-                    conditional(coluna, "p1")
-                }
-            }
-            if(coluna.id === "coluna02") {
-                if (tab02.length < 6) {
-                    coluna.appendChild(bola01)
-                    tab02 += '1'
-                    player = "p2"
-                    conditional(coluna, "p1")
-                    
-                }
-            }
-            if(coluna.id === "coluna03") {
-                if (tab03.length < 6) {
-                    coluna.appendChild(bola01)
-                    tab03 += '1'
-                    player = "p2"
-                    conditional(coluna, "p1")
-                }
-            }
-            if(coluna.id === "coluna04") {
-                if (tab04.length < 6) {
-                    coluna.appendChild(bola01)
-                    tab04 += '1'
-                    player = "p2"
-                    conditional(coluna, "p1")
-                }
-            }
-            if(coluna.id === "coluna05") {
-                if (tab05.length < 6) {
-                    coluna.appendChild(bola01)
-                    tab05 += '1'
-                    player = "p2"
-                    conditional(coluna, "p1")
-                }
 
-            }
-            if(coluna.id === "coluna06") {
-                if (tab06.length < 6) {
-                    coluna.appendChild(bola01)
-                    tab06 += '1'
-                    player = "p2"
-                    conditional(coluna, "p1")
-                }
-            }
-            if(coluna.id === "coluna07") {
-                if (tab07.length < 6) {
-                    coluna.appendChild(bola01)
-                    tab07 += '1'
-                    player = "p2"
-                    conditional(coluna, "p1")
-                }
-            }
-        }
 
+                if(colunaIndice < 6) {
+                    coluna.appendChild(bola01)
+                    player = "p2"
+                    conditional(posicaoY, "p1")
+                    vitoriaTeste(posicaoX,posicaoY)
+                
+        }}
         else if(player === "p2"){
-            if(coluna.id === "coluna01") {
-                if (tab01.length < 6) {
+            
+                if (colunaIndice < 6) {
                     coluna.appendChild(bola02)
                     player = "p1"
-                    tab01 += '2'
-                    conditional(coluna, "p2")
-                }
-            }
-            if(coluna.id === "coluna02") {
-                if (tab02.length < 6) {
-                    coluna.appendChild(bola02)
-                    player = "p1"
-                    tab02 += '2'
-                    conditional(coluna, "p2")
-                }
-            }
-            if(coluna.id === "coluna03") {
-                if (tab03.length < 6) {
-                    coluna.appendChild(bola02)
-                    player = "p1"
-                    tab03 += '2'
-                    conditional(coluna, "p2")
-                }
-            }
-            if(coluna.id === "coluna04") {
-                if (tab04.length < 6) {
-                    coluna.appendChild(bola02)
-                    player = "p1"
-                    tab04 += '2'
-                    conditional(coluna, "p2")
-                }
-            }
-            if(coluna.id === "coluna05") {
-                if (tab05.length < 6) {
-                    coluna.appendChild(bola02)
-                    player = "p1"
-                    tab05 += '2'
-                    conditional(coluna, "p2")
-                }
-            }
-            if(coluna.id === "coluna06") {
-                if (tab06.length < 6) {
-                    coluna.appendChild(bola02)
-                    player = "p1"
-                    tab06 += '2'
-                    conditional(coluna, "p2")
-                }
-            }
-            if(coluna.id === "coluna07") {
-                if (tab07.length < 6) {
-                    coluna.appendChild(bola02)
-                    player = "p1"
-                    tab07 += '2'
-                    conditional(coluna, "p2")
-                }
-            }
+                    conditional(posicaoY, "p2")
+                    vitoriaTeste(posicaoX,posicaoY)
+                }   
         }
     }
     
-    let posicaoY = parseInt(coluna.id[coluna.id.length-1])
-    let posicaoX = coluna.childElementCount
-
-    
-    vitoriaTeste(posicaoX,posicaoY)
-
-
-})
+}
 
 function vitoriaTeste(posicaoX,posicaoY) {
 
@@ -321,18 +222,6 @@ function vitoriaConcluida(vencedor){
 
 }
 
-
-
-
-
-let coluna01 = document.getElementById("coluna01")
-let coluna02 = document.getElementById("coluna02")
-let coluna03 = document.getElementById("coluna03")
-let coluna04 = document.getElementById("coluna04")
-let coluna05 = document.getElementById("coluna05")
-let coluna06 = document.getElementById("coluna06")
-let coluna07 = document.getElementById("coluna07")
-
 let array = [
     [],
     [],
@@ -347,25 +236,25 @@ function conditional(parametro,bola){
 
 
 
-    if (parametro === coluna01){
+    if (parametro === 1){
         array[0].push(bola)
     } 
-    if (parametro === coluna02){
+    if (parametro === 2){
         array[1].push(bola)
     }
-    if (parametro === coluna03){
+    if (parametro === 3){
         array[2].push(bola)
     } 
-    if (parametro === coluna04){
+    if (parametro === 4){
         array[3].push(bola)
     } 
-    if (parametro === coluna05){
+    if (parametro === 5){
         array[4].push(bola)
     }
-    if (parametro === coluna06){
+    if (parametro === 6){
         array[5].push(bola)
     }
-    if (parametro === coluna07){
+    if (parametro === 7){
         array[6].push(bola)
     }
 }
@@ -399,8 +288,7 @@ function vertical(posicaoX,posicaoY){
 
 function horizontal(posicaoX,posicaoY){
     let elemento = array[posicaoY-1][posicaoX-1]    
-    console.log('elemento zero',elemento)
-    let score = 0;
+        let score = 0;
 
     for (let i=0; i<array.length; i++){
         if(elemento === array[i][posicaoX-1] && array[i][posicaoX-1] != undefined && elemento != undefined){
@@ -547,238 +435,53 @@ function temaLove(){
 
 
 function del(){
+    const body = document.getElementsByTagName('body')[0];
 
-    const reset= document.querySelectorAll("section");
-
-    for(let i = 0; i < reset.length ; i ++){
-
-        reset[i].remove();
-
-    }
- 
-
-    const tit = document.querySelector("h1")
-
-    const plac = document.querySelector(".placar")
-
-    plac.remove()
-
-    tit.remove()
-
-    // reset.remove();
-
-    let title = document.createElement("h1")
-    title.innerHTML = "Lig-4"
-    title.classList.add("title")
-
-    document.body.appendChild(title)
-
-    // const body = document.getElementsByTagName('body')[0]
-    const section = document.createElement('section')
-    document.body.appendChild(section)
-    section.classList.add('sec')
-    section.setAttribute('id', 'sec')
-
+    body.innerHTML=""
+    array=[]
+     pageConstruct()
+     initial_table()
+     placar()
+     
     
-
-    initial_table()
-
-    placar()
-
-    
- 
-
- 
-
-
-    
-
-  
-
-    const sec = document.getElementById("sec")
-
-    const bola01 = document.createElement("div")
-    const bola02 = document.createElement("div")
-
-    bola01.classList.add("player01")
-    bola02.classList.add("player02")
-
-    let player = "p1";
-
-    let tab01 = ''
-    let tab02 = ''
-    let tab03 = ''
-    let tab04 = ''
-    let tab05 = ''
-    let tab06 = ''
-    let tab07 = '' 
-
-    coluna01 = document.getElementById("coluna01")
-    coluna02 = document.getElementById("coluna02")
-    coluna03 = document.getElementById("coluna03")
-    coluna04 = document.getElementById("coluna04")
-    coluna05 = document.getElementById("coluna05")
-    coluna06 = document.getElementById("coluna06")
-    coluna07 = document.getElementById("coluna07")
-
-    array = [
-        [],
-        [],
-        [],
-        [],
-        [],
-        [],
-        [],
-    ]
-
-    sec.addEventListener("click", (evt)=>{
-
-        const bola01 = document.createElement("div")
-        const bola02 = document.createElement("div")
-        
-        bola01.classList.add("player01","slide-in-top")
-        bola02.classList.add("player02","slide-in-top")
-        
-        let coluna = evt.target;
-        // console.log()    
-
-        if(coluna.classList[0] === "coluna"){
-            if(player === "p1"){
-                if(coluna.id === "coluna01") {
-                    if (tab01.length < 6) {
-                        coluna.appendChild(bola01)
-                        tab01 += '1'
-                        player = "p2"
-                        conditional(coluna, "p1")
-                    }
-                }
-                if(coluna.id === "coluna02") {
-                    if (tab02.length < 6) {
-                        coluna.appendChild(bola01)
-                        tab02 += '1'
-                        player = "p2"
-                        conditional(coluna, "p1")
-                        
-                    }
-                }
-                if(coluna.id === "coluna03") {
-                    if (tab03.length < 6) {
-                        coluna.appendChild(bola01)
-                        tab03 += '1'
-                        player = "p2"
-                        conditional(coluna, "p1")
-                    }
-                }
-                if(coluna.id === "coluna04") {
-                    if (tab04.length < 6) {
-                        coluna.appendChild(bola01)
-                        tab04 += '1'
-                        player = "p2"
-                        conditional(coluna, "p1")
-                    }
-                }
-                if(coluna.id === "coluna05") {
-                    if (tab05.length < 6) {
-                        coluna.appendChild(bola01)
-                        tab05 += '1'
-                        player = "p2"
-                        conditional(coluna, "p1")
-                    }
-
-                }
-                if(coluna.id === "coluna06") {
-                    if (tab06.length < 6) {
-                        coluna.appendChild(bola01)
-                        tab06 += '1'
-                        player = "p2"
-                        conditional(coluna, "p1")
-                    }
-                }
-                if(coluna.id === "coluna07") {
-                    if (tab07.length < 6) {
-                        coluna.appendChild(bola01)
-                        tab07 += '1'
-                        player = "p2"
-                        conditional(coluna, "p1")
-                    }
-                }
-            }
-
-            else if(player === "p2"){
-                if(coluna.id === "coluna01") {
-                    if (tab01.length < 6) {
-                        coluna.appendChild(bola02)
-                        player = "p1"
-                        tab01 += '2'
-                        conditional(coluna, "p2")
-                    }
-                }
-                if(coluna.id === "coluna02") {
-                    if (tab02.length < 6) {
-                        coluna.appendChild(bola02)
-                        player = "p1"
-                        tab02 += '2'
-                        conditional(coluna, "p2")
-                    }
-                }
-                if(coluna.id === "coluna03") {
-                    if (tab03.length < 6) {
-                        coluna.appendChild(bola02)
-                        player = "p1"
-                        tab03 += '2'
-                        conditional(coluna, "p2")
-                    }
-                }
-                if(coluna.id === "coluna04") {
-                    if (tab04.length < 6) {
-                        coluna.appendChild(bola02)
-                        player = "p1"
-                        tab04 += '2'
-                        conditional(coluna, "p2")
-                    }
-                }
-                if(coluna.id === "coluna05") {
-                    if (tab05.length < 6) {
-                        coluna.appendChild(bola02)
-                        player = "p1"
-                        tab05 += '2'
-                        conditional(coluna, "p2")
-                    }
-                }
-                if(coluna.id === "coluna06") {
-                    if (tab06.length < 6) {
-                        coluna.appendChild(bola02)
-                        player = "p1"
-                        tab06 += '2'
-                        conditional(coluna, "p2")
-                    }
-                }
-                if(coluna.id === "coluna07") {
-                    if (tab07.length < 6) {
-                        coluna.appendChild(bola02)
-                        player = "p1"
-                        tab07 += '2'
-                        conditional(coluna, "p2")
-                    }
-                }
-            }
-        }
-        
-        let posicaoY = parseInt(coluna.id[coluna.id.length-1])
-        let posicaoX = coluna.childElementCount
-
-        
-        vitoriaTeste(posicaoX,posicaoY)
-
-
-    })
-
-    
-
- 
-
-
-
- 
 
 }
+
+let resetButton = document.createElement("button");
+
+resetButton.addEventListener("click" ,() => {
+    del()
+})
+
+function displayResult(resultado) {
+
+    
+    const result = document.createElement("div")
+
+        const content = document.createElement("div")
+        content.classList.add("container-modal")
+
+
+        const player = document.createElement("div")
+        player.classList.add("player01")
+        player.setAttribute("id","win01")
+
+        resetButton.setAttribute("id", "btn")
+        resetButton.innerText = "Continuar";
+    
+        const frase = document.createElement("div")
+        frase.innerText = " é o vencedor!"
+        frase.classList.add("winner")
+    
+        content.appendChild(player)
+        content.appendChild(frase)
+        content.appendChild(resetButton)
+        result.classList.add("modal")
+        result.style.display = "block"
+        result.appendChild(content)
+        document.body.appendChild(result)
+
+
+}
+
+console.log(tabuleiro)
