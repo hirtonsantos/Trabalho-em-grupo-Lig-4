@@ -353,4 +353,4 @@ function diagonal(posicaoX,posicaoY){
     }
     
 }
-///
+//////
