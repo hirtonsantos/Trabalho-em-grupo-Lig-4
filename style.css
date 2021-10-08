@@ -12,6 +12,7 @@ body{
     flex-direction: column;
     height: 100%;
     width: 100%;
+    /* background: url('./image/hallow.png') repeat center; */
 }
 
 h1{
@@ -24,11 +25,9 @@ h1{
     padding: 20px;
     align-items: center;
     justify-content: center;
+    font-size: 40px;
 }
-.placar p {
-  padding: 10px;
-  
-}
+
 
 
 
@@ -50,9 +49,16 @@ h1{
 .placar{
   display: flex;
   margin: 0 auto;
+  margin-top: 40px;
   padding: 20px;
   justify-content: center;
   max-width: 500px;
+  background-color: rgba(243, 228, 228, 0.412);
+}
+
+.placar p {
+  padding: 10px;
+  
 }
 
 .sec_love {

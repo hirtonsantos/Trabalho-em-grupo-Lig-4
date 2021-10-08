@@ -33,7 +33,7 @@ function initial_table(){
         if(i === 3){
             const result = document.createElement('div')
             section.appendChild(result)
-            // result.setAttribute('class','win')
+    
             result.setAttribute('id', 'myModal')
 
             
@@ -71,7 +71,7 @@ sec.addEventListener("click", (evt)=>{
     bola02.classList.add("player02","slide-in-top")
     
     let coluna = evt.target;
-    // console.log()    
+     
 
     if(coluna.classList[0] === "coluna"){
         if(player === "p1"){
@@ -241,9 +241,7 @@ function vitoriaConcluida(vencedor){
         const btn = document.createElement("a")
         btn.setAttribute("id", "btn")
         btn.innerText = "Continuar"
-        // btn.setAttribute(onclick,del())
-        
-        // btn.addEventListener(onclick,del())
+    
         
 
 
@@ -260,14 +258,7 @@ function vitoriaConcluida(vencedor){
         result.style.display = "block"
         result.appendChild(content)
 
-        // btn.addEventListener("click", (evt)=>{
-        //     del()
-        // })
-
-
-
-    // result.appendChild(player)
-    // result.appendChild(frase)
+        
     }else{
         const result = document.querySelector("#myModal")
         const content = document.createElement("div")
@@ -282,7 +273,6 @@ function vitoriaConcluida(vencedor){
         btn.setAttribute("id", "btn")
         btn.innerText = "Continuar"
         
-        // btn.setAttribute(onclick,del())
 
 
 
@@ -298,11 +288,7 @@ function vitoriaConcluida(vencedor){
         result.style.display = "block"
         result.appendChild(content)
 
-        // btn.addEventListener("onclick", (evt)=>{
-        //     del()
-        // })
-
-        // <a class="onClick">continutar</a>
+ 
 
     }
 
@@ -315,9 +301,7 @@ function vitoriaConcluida(vencedor){
 
 }
 
-// function placar(){
-    
-// }
+
 
 
 
@@ -385,7 +369,7 @@ function vertical(posicaoX,posicaoY){
         
         if (score===4) {
             score = 1
-            console.log("score vertical ", score)
+        
             vitoriaConcluida(elemento)
         
 
@@ -406,8 +390,7 @@ function horizontal(posicaoX,posicaoY){
         }
         if(score >= 4 && score != undefined){
             score = 0
-            console.log("score ",score)
-            console.log("elemento ",elemento)
+
             vitoriaConcluida(elemento);
             
            break;
@@ -505,50 +488,7 @@ function temaLove(){
 
 }
 
-// temaLove()
 
-
-
-// function apagar(){
-//     const conteudo = document.querySelectorAll("body > .sec")
-
-//     for(let i = 0; i <conteudo.length; i++){
-//         conteudo[i].remove()
-//     }
-
-// }
-
-// apagar();
-
-
-
-// testando modal
-
-// Get the modal
-// var modal = document.getElementById("myModal");
-
-// Get the button that opens the modal
-// var btn = document.getElementById("myBtn");
-
-// Get the <span> element that closes the modal
-// var span = document.getElementsByClassName("close")[0];
-
-// When the user clicks on the button, open the modal
-// btn.onclick = function() {
-//   modal.style.display = "block";
-// }
-
-// When the user clicks on <span> (x), close the modal
-// span.onclick = function() {
-//   modal.style.display = "none";
-// }
-
-// When the user clicks anywhere outside of the modal, close it
-// window.onclick = function(event) {
-//   if (event.target == modal) {
-    // modal.style.display = "none";
-//   }
-// }
 
 function del(){
 
@@ -585,9 +525,6 @@ function del(){
 
     
 
-    // let section = document.querySelector('section')
-
-    // console.log("initial table ", initial_table())
     initial_table()
 
     placar()
@@ -780,7 +717,7 @@ function del(){
 
     })
 
-    // 
+    
 
  
 
