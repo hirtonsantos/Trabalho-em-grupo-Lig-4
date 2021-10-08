@@ -1,17 +1,33 @@
+body, ul , li, section {
+  margin: 0px;
+  padding: 0px;
+
+}
+
+
 body{
     display: flex;
     justify-content: center;
-    margin-top: 0 auto;
+    /* margin: 0 auto; */
     flex-direction: column;
     height: 100%;
+    width: 100%;
 }
 
 h1{
     display: flex;
     margin: 0 auto;
     font-family: 'Permanent Marker', cursive;
-    margin-bottom: 60px;
+    margin: 0 auto;
     color: rgba(255, 0, 0);
+    max-width: 290px;
+    padding: 20px;
+    align-items: center;
+    justify-content: center;
+}
+.placar p {
+  padding: 10px;
+  
 }
 
 
@@ -24,9 +40,19 @@ h1{
     background:url('./image/jigsaw.jpg') no-repeat center;
     background-size: cover;
     box-shadow: 6px 8px 10px 10px #c00;
-    max-width: 500px;
+    max-width: 290px;
     margin: 0 auto;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: center;
 
+}
+.placar{
+  display: flex;
+  margin: 0 auto;
+  padding: 20px;
+  justify-content: center;
+  max-width: 500px;
 }
 
 .sec_love {
@@ -37,7 +63,7 @@ h1{
   background:url('./image/love.jpg') no-repeat center;
   background-size: cover;
   box-shadow: 6px 8px 10px 10px #c00;
-  max-width: 500px;
+  max-width: 290px;
   margin: 0 auto;
 
 }
@@ -45,11 +71,11 @@ h1{
 .coluna {
     display: flex;
     flex-direction: column-reverse;
-    height: 350px;
-    width: 50px;
+    height: 244px;
+    width: 40px;
     /* background-color: blueviolet; */
     /* border: 1px solid black; */
-    border: 1px solid rgba(255, 0, 0, 0.1);
+    /* border: 1px solid rgba(255, 0, 0, 0.1); */
 
 }
 
@@ -63,8 +89,8 @@ h1{
 
 
 .player01 {
-    height: 50px;
-    width: 50px;
+    height: 38px;
+    width: 38px;
     background: url('./image/Sangue.jpg');
     background-size: cover;
     z-index: 1;
@@ -72,27 +98,111 @@ h1{
     border-radius: 50%;
 }
 
+.player01:hover{
+  border: 1px solid #CCC;
+}
+
 
 .player02 {
-    height: 50px;
-    width: 50px;
+    height: 38px;
+    width: 38px;
     background: url('./image/facada.jpg') center;
     background-size: cover;
 
     border-radius: 50%;
     z-index: 1;
 }
-
-
-.placar{
-    display: flex;
-    margin: 20px;
-    padding: 20px;
-    justify-content: center;
+.player02:hover{
+  border: 1px solid #CCC;
 }
+
+
+
 .slide-in-top {
 	-webkit-animation: slide-in-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 	        animation: slide-in-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+/* .win {
+  display: flex;
+  position: absolute;
+  width: 240px;
+  height: 120px;
+
+ 
+  background: url("./image/fundosomb.png") no-repeat center;
+  border-radius: 3px;
+  justify-content: center;
+} */
+
+#myModal {
+  align-items: center;
+  padding: 60px 0px;
+  
+}
+
+.winner {
+  align-items: center;
+  padding: 60px 0px;
+  font-family: 'Permanent Marker', cursive;
+  color: rgba(255, 0, 0);
+}
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); 
+}
+
+.container-modal {
+  background-color: rgba(0,0,0,0.6);
+  margin: -1% auto; 
+  padding: 20px;
+  border: 1px solid #888;
+  max-width: 290px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  
+}
+
+#btn {
+
+  background-color: rgba(240, 248, 255,0.6);
+  color: beige;
+  margin-left: 4px;
+  border-radius: 2px;
+  padding: 5px;
+}
+#btn:hover{
+  border: 1px solid #c00;
+  cursor:pointer;
+}
+
+#win01 {
+
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 @-webkit-keyframes slide-in-top {
@@ -119,4 +229,13 @@ h1{
       opacity: 1;
     }
   }
+
+  @media screen and (max-width:425px){
+   
+
   
+  }
+  
+
+
+
