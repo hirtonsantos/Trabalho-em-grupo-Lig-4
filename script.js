@@ -83,7 +83,11 @@ sec.addEventListener("click", (evt)=>{
 =======
     let coluna = evt.target;
      
+<<<<<<< HEAD
 >>>>>>> newVersion
+=======
+>>>>>>> dcf295428683e1f1ffe5756dba1a5f80e4ef91dc
+>>>>>>> funcao-vitoria-dinamica
 
     if(coluna.classList[0] === "coluna"){
         if(player === "p1"){
@@ -320,7 +324,11 @@ function vitoriaConcluida(vencedor){
 
 
 
+<<<<<<< HEAD
 >>>>>>> newVersion
+=======
+>>>>>>> dcf295428683e1f1ffe5756dba1a5f80e4ef91dc
+>>>>>>> funcao-vitoria-dinamica
 
 let coluna01 = document.getElementById("coluna01")
 let coluna02 = document.getElementById("coluna02")
@@ -385,7 +393,11 @@ function vertical(posicaoX,posicaoY){
         if (coluna[posicaoX-1] === coluna[posicaoX-5] && coluna[posicaoX-1] != undefined && coluna[posicaoX-2] != undefined){
             score++
         }
+<<<<<<< HEAD
 >>>>>>> newVersion
+=======
+>>>>>>> dcf295428683e1f1ffe5756dba1a5f80e4ef91dc
+>>>>>>> funcao-vitoria-dinamica
         
         if (score===4) {
             score = 1
@@ -769,4 +781,8 @@ function del(){
  
 
 }
+<<<<<<< HEAD
 >>>>>>> newVersion
+=======
+>>>>>>> dcf295428683e1f1ffe5756dba1a5f80e4ef91dc
+>>>>>>> funcao-vitoria-dinamica
