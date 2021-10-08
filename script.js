@@ -346,6 +346,7 @@ function diagonal(posicaoX,posicaoY){
 
     }
     
+<<<<<<< HEAD
 }
 function empate(){
     let soma = 1
@@ -364,3 +365,6 @@ function empate(){
 }
 
 
+=======
+}
+>>>>>>> 7e44ee07d92333d374a6ea10d0d63d42ff84d561
