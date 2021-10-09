@@ -22,19 +22,17 @@ const section = document.createElement('section')
 body.appendChild(section)
 section.classList.add('sec')
 section.setAttribute('id', 'sec')
-
 }
-
 function initial_table(){
 
     let coluna = 7;
-    let section = document.querySelector('section')
+    let section = document.getElementById("sec")
     for (let i = 0; i < coluna; i++) {
         const colunas = document.createElement('div')
         section.appendChild(colunas)
         colunas.setAttribute('class','coluna')
         colunas.setAttribute('id',`coluna0${i+1}`)
-        console.log(colunas)
+        
     }
 
 
@@ -43,22 +41,13 @@ pageConstruct()
 initial_table()
 placar()
 
-
-
-
-
 const tabuleiro = document.getElementById("sec")
-
-
-
 
 tabuleiro.addEventListener("click", (evt)=>{
  
-    bolinhaAppend(evt)
-    console.log("click")
+    bolinhaAppend(evt) 
 
 })
-
 
 function bolinhaAppend(evt) {
 
@@ -82,7 +71,7 @@ function bolinhaAppend(evt) {
     let colunaIndice = coluna.childElementCount
     let posicaoY = parseInt(coluna.id[coluna.id.length-1])
     let posicaoX = colunaIndice+1
-    console.log(posicaoY, posicaoX, colunaIndice)
+    
     
 
 //----ALTERNANDO A CLASSE DO DISPLAY DO PRÓXIMO JOGADOR ------//
@@ -134,6 +123,8 @@ function vitoriaTeste(posicaoX,posicaoY) {
 
 function vitoriaConcluida(vencedor){
 
+    displayResult(vencedor)
+
     console.log(vencedor + " Ganhou")
     if(vencedor === "p1"){
         const placar = document.querySelector("p")
@@ -141,85 +132,10 @@ function vitoriaConcluida(vencedor){
         placar.innerText = count_player_one+" VS "+count_player_two
 
     }else{
-
         const placar = document.querySelector("p")
         count_player_two +=1 
         placar.innerText = count_player_one+" VS "+count_player_two
-
     }
-
-    if(vencedor === "p1"){
-
-        const result = document.querySelector("#myModal")
-        const content = document.createElement("div")
-        content.classList.add("container-modal")
-
-
-        const player = document.createElement("div")
-        player.classList.add("player01")
-        player.setAttribute("id","win01")
-
-        const btn = document.createElement("a")
-        btn.setAttribute("id", "btn")
-        btn.innerText = "Continuar"
-    
-        
-
-
-
-        const frase = document.createElement("div")
-        frase.innerText = " é o vencedor!"
-        frase.classList.add("winner")
-    
-        content.appendChild(player)
-        content.appendChild(frase)
-        btn.innerHTML = "<a onclick=del()>Continuar</a>"
-        content.appendChild(btn)
-        result.classList.add("modal")
-        result.style.display = "block"
-        result.appendChild(content)
-
-        
-    }else{
-        const result = document.querySelector("#myModal")
-        const content = document.createElement("div")
-        content.classList.add("container-modal")
-
-
-        const player = document.createElement("div")
-        player.classList.add("player02")
-        player.setAttribute("id","win01")
-
-        const btn = document.createElement("a")
-        btn.setAttribute("id", "btn")
-        btn.innerText = "Continuar"
-        
-
-
-
-        const frase = document.createElement("div")
-        frase.innerText = " é o vencedor!"
-        frase.classList.add("winner")
-    
-        content.appendChild(player)
-        content.appendChild(frase)
-        btn.innerHTML = "<a onclick=del()>Continuar</a>"
-        content.appendChild(btn)
-        result.classList.add("modal")
-        result.style.display = "block"
-        result.appendChild(content)
-
- 
-
-    }
-
-    
-   
-
-    
-    
-
-
 }
 
 let array = [
@@ -234,29 +150,8 @@ let array = [
 
 function conditional(parametro,bola){
 
-
-
-    if (parametro === 1){
-        array[0].push(bola)
-    } 
-    if (parametro === 2){
-        array[1].push(bola)
-    }
-    if (parametro === 3){
-        array[2].push(bola)
-    } 
-    if (parametro === 4){
-        array[3].push(bola)
-    } 
-    if (parametro === 5){
-        array[4].push(bola)
-    }
-    if (parametro === 6){
-        array[5].push(bola)
-    }
-    if (parametro === 7){
-        array[6].push(bola)
-    }
+        array[parametro-1].push(bola)
+    
 }
 
 function vertical(posicaoX,posicaoY){
@@ -378,29 +273,10 @@ function empate(){
         }
     }
     if (soma >= 43){
-        console.log (soma,texto)
-        const result = document.querySelector("#myModal")
-        const content = document.createElement("div")
-        content.classList.add("container-modal")
-
-
-        const btn = document.createElement("a")
-        btn.setAttribute("id", "btn")
-        btn.innerText = "Continuar"
-    
-        const frase = document.createElement("div")
-        frase.innerText = " Empatou!"
-        frase.classList.add("winner")
-    
-        content.appendChild(frase)
-        btn.innerHTML = "<a onclick=del()>Continuar</a>"
-        content.appendChild(btn)
-        result.classList.add("modal")
-        result.style.display = "block"
-        result.appendChild(content)
+        
+        displayResult("empate")
     }
 }
-
 
 function placar(){
     const placar = document.createElement("div")
@@ -424,27 +300,31 @@ function placar(){
 
 function temaLove(){
     const love = document.querySelector("#sec")
-    console.log(love)
+    
     love.classList.remove("sec")
     love.classList.add("sec_love")
-   
-
-
 }
-
-
-
 function del(){
-    const body = document.getElementsByTagName('body')[0];
+    const tabuleiro = document.getElementById("sec")
+    const display = document.getElementById("result")
 
-    body.innerHTML=""
-    array=[]
-     pageConstruct()
+
+    tabuleiro.innerHTML=""
+    display.remove() 
      initial_table()
-     placar()
-     
-    
-
+     array = [
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+    ]
+     player="p1"
+     let currentPlayer = document.getElementById("jogadorSeguinte")
+     currentPlayer.classList.remove("jogada02")
+        currentPlayer.classList.add("jogada01")
 }
 
 let resetButton = document.createElement("button");
@@ -457,21 +337,33 @@ function displayResult(resultado) {
 
     
     const result = document.createElement("div")
+    result.id = "result"
 
         const content = document.createElement("div")
         content.classList.add("container-modal")
 
 
         const player = document.createElement("div")
-        player.classList.add("player01")
-        player.setAttribute("id","win01")
-
-        resetButton.setAttribute("id", "btn")
-        resetButton.innerText = "Continuar";
-    
         const frase = document.createElement("div")
         frase.innerText = " é o vencedor!"
         frase.classList.add("winner")
+
+        player.classList.add("player01")
+        player.setAttribute("id","win01")
+
+        if (resultado === "p2"){
+        player.classList.add("player02")
+        player.setAttribute("id","win02")
+        }
+
+        if(resultado === "empate"){
+            frase.innerText = "Empatou!"
+            player.classList.remove("player01", "player02")
+
+        }
+
+        resetButton.setAttribute("id", "btn")
+        resetButton.innerText = "Continuar";
     
         content.appendChild(player)
         content.appendChild(frase)
@@ -484,4 +376,3 @@ function displayResult(resultado) {
 
 }
 
-console.log(tabuleiro)

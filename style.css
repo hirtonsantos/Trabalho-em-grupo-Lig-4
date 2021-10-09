@@ -202,6 +202,7 @@ h1{
   align-items: center;
   box-sizing: border-box;
   
+  
 }
 
 #btn {
@@ -293,7 +294,7 @@ h1{
 
     .container-modal {
 
-      margin: 10% auto;
+      margin: 50vh auto;
 
     }
 
