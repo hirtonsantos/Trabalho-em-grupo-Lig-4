@@ -167,9 +167,7 @@ function vertical(posicaoX,posicaoY){
         if (coluna[posicaoX-1] === coluna[posicaoX-4] && coluna[posicaoX-1] != undefined && coluna[posicaoX-2] != undefined){
             score++
         }
-        if (coluna[posicaoX-1] === coluna[posicaoX-5] && coluna[posicaoX-1] != undefined && coluna[posicaoX-2] != undefined){
-            score++
-        }
+        
         
         if (score===4) {
             score = 1
@@ -307,7 +305,6 @@ function temaLove(){
 function del(){
     const tabuleiro = document.getElementById("sec")
     const display = document.getElementById("result")
-
 
     tabuleiro.innerHTML=""
     display.remove() 
